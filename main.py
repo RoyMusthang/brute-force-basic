@@ -11,4 +11,14 @@ import requests
                     print("{} -- {}".format(url_end, code))
                 except KeyboardInterrupt:
                     sys.exit(0)
-                except 
+                except Exception as error:
+                    print(error)
+                    pass
+
+    if __name__ == "__main__":
+        url = sys.argv[1]
+        wordlist = sys.argv[2]
+
+        with open(wordlist, "r") as file:
+            wordlist = file.readlines()
+            brute(url, wordlist)
